@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusTrack - Login</title>
+
+<style>
+/* ===== BODY & BACKGROUND IMAGE ===== */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Background image */
+    background: url('images/infosys_image.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Overlay animated gradient */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #ff00c8, #ff8c00, #00e5ff, #3f51b5);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    opacity: 0.55;
+    z-index: 1;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== Floating Neon Glow Circles ===== */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.7;
+}
+
+.circle1 { width: 170px; height: 170px; background: #00e5ff; top: 10%; left: 8%; animation: float 6s infinite alternate; }
+.circle2 { width: 230px; height: 230px; background: #ff0080; bottom: 5%; right: 10%; animation: float 7s infinite alternate-reverse; }
+
+@keyframes float {
+    from { transform: translateY(0px); }
+    to { transform: translateY(25px); }
+}
+
+/* ===== TITLE ===== */
+.title {
+    position: absolute;
+    top: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0 0 25px #000;
+    z-index: 5;
+}
+
+/* ===== GLASS BOX FORM ===== */
+.glass-box {
+    position: relative;
+    z-index: 5;
+    width: 380px;
+    padding: 35px;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 45px rgba(255,255,255,0.5);
+    animation: fadeIn 1.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    margin-top: 12px;
+    background-color: rgba(255,255,255,0.95);
+    font-size: 16px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+input:focus {
+    box-shadow: 0 0 15px white;
+    transform: scale(1.02);
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background: linear-gradient(45deg, #ff0080, #ff8c00);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 25px rgba(255,255,255,0.5);
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #fff;
+}
+
+.link {
+    margin-top: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+a {
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating Circles -->
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<!-- Page Title -->
+<div class="title">
+    CampusTrack<br>
+    <span style="font-size:20px;">Intelligent Lost & Found Locator</span>
+</div>
+
+<!-- Glass Login Form -->
+<div class="glass-box">
+    <h2>Login</h2>
+
+    <!-- UPDATED FRONTEND-ONLY FORM -->
+    <form onsubmit="showSuccess(event)">
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <button type="submit">Login</button>
+
+        <div class="link">
+            Don’t have an account? <a href="register.html">Register</a>
+        </div>
+    </form>
+
+</div>
+
+<script>
+function showSuccess(event) {
+    event.preventDefault();
+    alert("Login Successful!");
+    window.location.href = "home.html";  // Change to your target page
+}
+</script>
+
+</body>
+</html>
